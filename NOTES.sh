@@ -76,6 +76,9 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 kubectl get svc -n ingress-nginx -o wide
 # get external IP of ingress-nginx-controller service loadbalancer 
 
+# Patch svc ingress-nginx-controller to LoadBalancer if there is on NodePort
+kubectl patch svc ingress-nginx-controller -n ingress-nginx -p '{"spec": {"type": "LoadBalancer"}}'
+
 kubectl patch svc wbcolor -p '{"spec": {"type": "LoadBalancer"}}'
 
 git clone https://github.com/OlivierKouokam/example-voting-app.git
