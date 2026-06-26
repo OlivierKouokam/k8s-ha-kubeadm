@@ -67,11 +67,10 @@ kubectl expose deploy wbcolor --type NodePort --port 8080 --target-port 8080
 # install baremetal loadbalancer : metallb and nginx ingress controller
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.9/config/manifests/metallb-native.yaml
 kubectl get all -n metallb-system
-
-//### kubectl apply -f https://raw.githubusercontent.com/eazytraining/kubernetes-certified-administrator-training/v1.29/09_lab-09/ip_address_pool/ipaddresspool.yml
+### kubectl apply -f https://raw.githubusercontent.com/eazytraining/kubernetes-certified-administrator-training/v1.29/09_lab-09/ip_address_pool/ipaddresspool.yml
 curl -O https://raw.githubusercontent.com/eazytraining/kubernetes-certified-administrator-training/v1.29/09_lab-09/ip_address_pool/ipaddresspool.yml
-// update cidr in ipaddresspool.yml file
-kubectl apply -f /home/vagrant/ipaddresspool.yml
+### update cidr in ipaddresspool.yml file
+kubectl apply -f ipaddresspool.yml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.7.0/deploy/static/provider/cloud/deploy.yaml
 
 kubectl get svc -n ingress-nginx -o wide
